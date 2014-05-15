@@ -1,0 +1,47 @@
+{
+    "name": "fs-sugar",
+    "version": "0.0.1",
+    "description": "fs-sugar",
+    "homepage": "https://github.com/maczam/node-fs-sugar.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maczam/node-fs-sugar.git"
+    },
+    "keywords": [
+        "fs",
+        "file",
+        "copy",
+        "directory",
+        "mkdirp",
+        "mkdir",
+        "mkdirs",
+        "read",
+        "write",
+        "delete",
+        "remove",
+        "create"
+    ],
+    "author": {
+        "name": "maczam",
+        "email": "maczam@163.com"
+    },
+    "dependencies": {
+        "ncp": "0.5.1"
+    },
+    "devDependencies": {},
+    "main": "index",
+    "scripts": {},
+    "bugs": {
+        "url": "https://github.com/maczam/node-fs-sugar/issues"
+    },
+    "directories": {
+        "test": "test"
+    },
+    "readme": "node-fs-sugar\r\n=======",
+    "readmeFilename": "README.md",
+    "_id": "fs-sugar@0.0.1",
+    "dist": {
+        "shasum": "616eec88b712b71a066c8a7dfc9a028fafcc3eb8"
+    },
+    "_from": "."
+}
