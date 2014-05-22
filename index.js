@@ -4,14 +4,17 @@
  */
 
 var sugar = require('./lib/sugar');
+var fileSugar = require('./lib/file-sugar');
 
-var fs_sugar = module.exports = {};
+var fsSugar = module.exports = {};
 
 //file
-fs_sugar.createFileSync = sugar.createFileSync;
-fs_sugar.isDirectorySync = sugar.isDirectorySync;
-fs_sugar.isFileSync = sugar.isFileSync;
-fs_sugar.mkDirSync = sugar.mkDirSync;
-fs_sugar.rmrDirSync = sugar.rmrDirSync;
-fs_sugar.listFilter = sugar.listFilter;
-fs_sugar.copyDirSync = sugar.copyDirSync;
+fsSugar.createFileSync = sugar.createFileSync;
+fsSugar.isDirectorySync = sugar.isDirectorySync;
+fsSugar.isFileSync = sugar.isFileSync;
+fsSugar.mkDirSync = sugar.mkDirSync;
+fsSugar.rmrDirSync = sugar.rmrDirSync;
+fsSugar.listFilter = sugar.listFilter;
+fsSugar.copyDirSync = sugar.copyDirSync;
+fsSugar.copyDirSync = fileSugar.copyDirSync;
+fsSugar.copyFileSync = fileSugar.copyFileSync;
