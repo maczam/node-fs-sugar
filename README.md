@@ -23,7 +23,7 @@ listFilterSync(dir,filter)
 按照制定的条件`function`列出子文件、目录
 ```js
 var sugar = require('fs-sugar');
-var fileNameArray = sugar.listFilter('/a/b/c',function(fileName,stats){
+var fileNameArray = sugar.listFilter('/a/b/c',function(fileName,fileStat){
     console.log(fileName);
     console.log(JSON.stringify(fileStat));
     if (fileStat.isFile()) {
