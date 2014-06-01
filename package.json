@@ -1,6 +1,6 @@
 {
   "name": "fs-sugar",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "fs-sugar",
   "homepage": "https://github.com/maczam/node-fs-sugar.git",
   "repository": {
@@ -23,7 +23,6 @@
   ],
   "author": "maczam <maczam@163.com>",
   "dependencies": {
-    "ncp": "0.5.1"
   },
   "devDependencies": {},
   "main": "index",

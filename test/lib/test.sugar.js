@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     assert = require('assert'),
-    sugar = require('../lib/sugar');
+    sugar = require('../../lib/sugar');
 
 describe("test sugar : ", function () {
     var baseDir = path.join('/', 'testSugar' + new Date().getTime()),
