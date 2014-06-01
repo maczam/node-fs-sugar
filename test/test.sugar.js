@@ -1,13 +1,13 @@
 var fs = require('fs'),
     path = require('path'),
     assert = require('assert'),
-    sugar = require('../index');
+    sugar = require('../lib/sugar');
 
 describe("test sugar : ", function () {
-    var baseDir = path.join('/', '' + new Date().getTime()),
+    var baseDir = path.join('/', 'testSugar' + new Date().getTime()),
         dir = path.join(baseDir, "/b/c/");
 
-    before(function () {
+    beforeEach(function () {
         fs.mkdirSync(baseDir);
     });
 
@@ -17,8 +17,9 @@ describe("test sugar : ", function () {
     });
 
     it('#rmrDirSync', function () {
-        sugar.rmrDirSync(baseDir);
-        assert.equal(fs.existsSync(baseDir), false, 'rmrDirSync fail!');
+        sugar.mkDirSync(dir);
+        sugar.rmrDirSync(dir);
+        assert.equal(fs.existsSync(dir), false, 'rmrDirSync fail!');
     });
 
     it('#createFileSync', function () {
@@ -35,7 +36,31 @@ describe("test sugar : ", function () {
         assert.equal(sugar.isFileSync(baseDir), false, 'isFileSync fail')
     });
 
-    after(function () {
+    it('#listSync', function () {
+        var file = path.join(dir, 'aa.txt');
+        sugar.createFileSync(file);
+        var list = sugar.listSync(dir);
+        assert.equal(list.length, 1, 'listSync files number error');
+        assert.equal(list[0], 'aa.txt', 'listSync files name error');
+    });
+
+    it('#listFilterSync', function () {
+        var file = path.join(dir, 'aa.txt');
+        sugar.createFileSync(file);
+        var list = sugar.listFilterSync(dir, function (fileName,fileStat) {
+            console.log(fileName);
+            console.log(JSON.stringify(fileStat));
+            if (fileStat.isFile()) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        assert.equal(list.length, 1, 'listSync files number error');
+        assert.equal(list[0], 'aa.txt', 'listSync files name error');
+    });
+
+    afterEach(function () {
         sugar.rmrDirSync(baseDir);
     });
 });

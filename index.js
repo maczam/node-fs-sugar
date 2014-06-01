@@ -14,7 +14,8 @@ fsSugar.isDirectorySync = sugar.isDirectorySync;
 fsSugar.isFileSync = sugar.isFileSync;
 fsSugar.mkDirSync = sugar.mkDirSync;
 fsSugar.rmrDirSync = sugar.rmrDirSync;
-fsSugar.listFilter = sugar.listFilter;
-fsSugar.copyDirSync = sugar.copyDirSync;
+fsSugar.listFilterSync = sugar.listFilterSync;
+fsSugar.listSync = sugar.listSync;
+
 fsSugar.copyDirSync = fileSugar.copyDirSync;
 fsSugar.copyFileSync = fileSugar.copyFileSync;

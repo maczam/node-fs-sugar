@@ -6,32 +6,42 @@ fs-sugar(甜fs)封装了部分fs常用的方法，来方便开发。
 Quick Examples
 ===
 
-listFilter
----
-按照制定的条件`function`列出子文件、目录
-```js
-var sugar = require('s-sugar');
-sugar.listFilter('/a/b/c',function(file){
-    if(file == 'abc'){
-        return true;
-    }        
-});
-    
-```
-
-
-mkdirSyn
+mkdirSyn(dir)
 ---
 创建多层目录，类似`mkdir -p /a/b/c`
 ```js
-var sugar = require('s-sugar');
+var sugar = require('fs-sugar');
 sugar.mkdirSync('/a/b/c');
 ```
-rmrDirSync
+rmrDirSync(dir)
 ---
 直接删除目录，类似`rm -rf /a/b`
 
-    
+
+listFilterSync(dir,filter)
+---
+按照制定的条件`function`列出子文件、目录
+```js
+var sugar = require('fs-sugar');
+var fileNameArray = sugar.listFilter('/a/b/c',function(fileName,stats){
+    console.log(fileName);
+    console.log(JSON.stringify(fileStat));
+    if (fileStat.isFile()) {
+        return true;
+    } else {
+        return false;
+    }
+});
+
+```
+
+listSync(dir)
+---
+列出文件夹下面所有文件
+```js
+var sugar = require('fs-sugar');
+var fileNameArray = sugar.listSync(dir);
+```
 
 createFileSync
 ---
