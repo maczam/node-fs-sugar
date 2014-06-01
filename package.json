@@ -1,7 +1,7 @@
 {
   "name": "fs-sugar",
-  "version": "0.1.0",
-  "description": "fs-sugar",
+  "version": "0.0.2",
+  "description": "fs-sugar(甜fs)封装了部分fs常用的方法，方便开发。",
   "homepage": "https://github.com/maczam/node-fs-sugar.git",
   "repository": {
     "type": "git",
@@ -22,8 +22,7 @@
     "create"
   ],
   "author": "maczam <maczam@163.com>",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {},
   "main": "index",
   "scripts": {},
