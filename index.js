@@ -11,6 +11,7 @@ var fsSugar = module.exports = {};
 fsSugar.createFileSync = sugar.createFileSync;
 fsSugar.isDirectorySync = sugar.isDirectorySync;
 fsSugar.isFileSync = sugar.isFileSync;
+fsSugar.mkdir = sugar.mkdir;
 fsSugar.mkDirSync = sugar.mkDirSync;
 fsSugar.rmrDirSync = sugar.rmrDirSync;
 

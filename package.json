@@ -19,7 +19,9 @@
     "write",
     "delete",
     "remove",
-    "create"
+    "create",
+    "listdir",
+    "filterdir"
   ],
   "author": "maczam <maczam@163.com>",
   "dependencies": {},

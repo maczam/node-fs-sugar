@@ -1,3 +1,6 @@
+/**
+ * Created by hexin on 2014/6/4.
+ */
 var fs = require('fs'),
     path = require('path'),
     assert = require('assert'),
@@ -5,62 +8,23 @@ var fs = require('fs'),
 
 describe("test sugar : ", function () {
     var baseDir = path.join('/', 'testSugar' + new Date().getTime()),
-        dir = path.join(baseDir, "/b/c/");
-
-    beforeEach(function () {
-        fs.mkdirSync(baseDir);
+        dir = path.join(baseDir, "a/b/c");
+    beforeEach(function (done) {
+        fs.mkdir(baseDir, function (err) {
+            if (err) return done(err);
+            done();
+        })
     });
 
-    it('#mkDirSync', function () {
-        sugar.mkDirSync(dir);
-        assert.equal(fs.existsSync(dir), true, 'mkDirSync fail!');
-    });
-
-    it('#rmrDirSync', function () {
-        sugar.mkDirSync(dir);
-        sugar.rmrDirSync(dir);
-        assert.equal(fs.existsSync(dir), false, 'rmrDirSync fail!');
-    });
-
-    it('#createFileSync', function () {
-        var file = path.join(dir, 'aa.txt');
-        sugar.createFileSync(file);
-        assert.equal(fs.existsSync(file), true, 'createFilSyenc fail');
-    });
-
-    it('#isDirectorySync', function () {
-        assert.equal(sugar.isDirectorySync(baseDir), true, 'isDirectorySync fail')
-    });
-
-    it('#isFileSync', function () {
-        assert.equal(sugar.isFileSync(baseDir), false, 'isFileSync fail')
-    });
-
-    it('#listSync', function () {
-        var file = path.join(dir, 'aa.txt');
-        sugar.createFileSync(file);
-        var list = sugar.listSync(dir);
-        assert.equal(list.length, 1, 'listSync files number error');
-        assert.equal(list[0], 'aa.txt', 'listSync files name error');
-    });
-
-    it('#listFilterSync', function () {
-        var file = path.join(dir, 'aa.txt');
-        sugar.createFileSync(file);
-        var list = sugar.listFilterSync(dir, function (fileName,fileStat) {
-            console.log(fileName);
-            console.log(JSON.stringify(fileStat));
-            if (fileStat.isFile()) {
-                return true;
-            } else {
-                return false;
-            }
+    it('#mkDir', function (done) {
+        sugar.mkDir(dir, '0755', function (err) {
+            assert.equal(fs.existsSync(dir), true, 'mkDirSync fail!');
+            done();
         });
-        assert.equal(list.length, 1, 'listSync files number error');
-        assert.equal(list[0], 'aa.txt', 'listSync files name error');
     });
 
-    afterEach(function () {
+    afterEach(function (done) {
         sugar.rmrDirSync(baseDir);
+        done();
     });
 });

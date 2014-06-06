@@ -28,11 +28,9 @@ assert.equal(sugar.isFileSync('/a/b'), false, 'isFileSync fail')
 
 * copyFileSync(srcFile, destDir)
 将srcFile文件拷贝至destDir,如果destDir不存在会新建
-
 ```js
 var sugar = require('fs-sugar');
 sugar.copyFileSync('/a/b/aa.txt','/c')
-
 ```
 
 dir
@@ -44,11 +42,32 @@ var sugar = require('fs-sugar');
 assert.equal(sugar.isDirectorySync('/a/b'), true, 'isDirectorySync fail')
 ```
 
-* mkDirSync(dir)
+* mkDir(dir/*,mode*/,cb)
+创建多层目录
+```js
+var path = require('path'),
+    sugar = require('../lib/sugar');
+
+var baseDir = path.join('/', 'testSugar' + new Date().getTime()),
+    dir = path.join(baseDir, "a/b/c/d/e");
+sugar.mkDir(dir, '0755', function (err, dir) {
+    console.log(err);
+    console.log(dir);
+});
+
+sugar.mkDir(dir, function (err, dir) {
+    console.log(err);
+    console.log(dir);
+});
+```
+
+* mkDirSync(dir/*,mode*/)
 创建多层目录，类似`mkdir -p /a/b/c`
 ```js
 var sugar = require('fs-sugar');
 sugar.mkdirSync('/a/b/c');
+
+sugar.mkdirSync('/a/b/c','0755');
 ```
 
 * rmrDirSync(dir)

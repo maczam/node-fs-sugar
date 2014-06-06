@@ -1,14 +1,13 @@
 /**
  * Created by hexin on 2014/6/1.
  */
-
 var fs = require('fs'),
     path = require('path'),
     assert = require('assert'),
     sugar = require('../../lib/sugar'),
     fsSugar = require('../../lib/file-sugar');
 
-describe("test sugar : ", function () {
+describe("test fsSugarSync : ", function () {
     var srcDir = path.join('/', 'testSrcDir' + new Date().getTime()),
         destDir = path.join('/', 'testDestDir' + new Date().getTime());
 
